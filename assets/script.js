@@ -33,6 +33,16 @@ $(function () {
   }
   // calling function here to update the class of time-block elements
   hourUpdate();
+// function checks when the user visited the page and counts until the hour is up so that the page can refresh and the past, present, future time blocks move accordingly
+  function getSecondsUntilNextHour() {
+    let date = new Date();
+    return (60 - date.getMinutes()) * 60;
+  }
+  setTimeout(reloadPage, getSecondsUntilNextHour() * 1000);
+  function reloadPage() {
+    document.location.reload();
+  }
+
   // pulls information stored in local storage
   $("#hour-9 .description").val(localStorage.getItem("hour-9"));
   $("#hour-10 .description").val(localStorage.getItem("hour-10"));
