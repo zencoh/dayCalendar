@@ -1,6 +1,3 @@
-// Wrap all code that interacts with the DOM in a call to jQuery to ensure that
-// the code isn't run until the browser has finished rendering all the elements
-// in the html.
 $(function () {
   $(".saveBtn").on("click", function() {
     // grabs what the user wrote and the time
@@ -42,7 +39,6 @@ $(function () {
   function reloadPage() {
     document.location.reload();
   }
-
   // pulls information stored in local storage
   $("#hour-9 .description").val(localStorage.getItem("hour-9"));
   $("#hour-10 .description").val(localStorage.getItem("hour-10"));
